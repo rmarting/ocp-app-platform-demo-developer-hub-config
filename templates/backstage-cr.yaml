@@ -1,0 +1,30 @@
+apiVersion: rhdh.redhat.com/v1alpha3
+kind: Backstage
+metadata:
+  name: developer-hub
+  namespace: rhdh
+  labels:
+    app.kubernetes.io/name: backstage
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  application:
+    appConfig:
+      mountPath: /opt/app-root/src
+      configMaps:
+        - name: app-config-rhdh
+    dynamicPluginsConfigMapName: dynamic-plugins
+    extraEnvs:
+      secrets:
+        - name: gitlab-token
+        - name: argocd-password
+        - name: kubernetes-sa-token
+        - name: oauth-client
+        - name: backstage-orchestrator-token
+    extraFiles:
+      mountPath: /opt/app-root/src
+    replicas: 1
+    route:
+      enabled: true
+  database:
+    enableLocalDb: true

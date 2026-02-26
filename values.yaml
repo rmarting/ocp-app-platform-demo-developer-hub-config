@@ -1,0 +1,11 @@
+backstage:
+  host: ""
+
+gitlab:
+  host: ""
+
+argocd:
+  host: ""
+
+kubernetes:
+  apiUrl: ""

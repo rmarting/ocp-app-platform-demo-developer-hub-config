@@ -1,0 +1,64 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-config-rhdh
+  labels:
+    app.kubernetes.io/name: backstage
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+data:
+  app-config-rhdh.yaml: |
+    app:
+      title: Red Hat Developer Hub
+      baseUrl: https://{{ .Values.backstage.host }}
+
+    auth:
+      providers:
+        guest:
+          dangerouslyAllowOutsideDevelopment: true
+
+    backend:
+      baseUrl: https://{{ .Values.backstage.host }}
+      listen:
+        port: 7007
+        host: 0.0.0.0
+
+    integrations:
+      gitlab:
+        - apiBaseUrl: https://{{ .Values.gitlab.host }}/api/v4
+          baseUrl: https://{{ .Values.gitlab.host }}
+          host: {{ .Values.gitlab.host }}
+          token: ${GITLAB_TOKEN}
+
+    catalog:
+      rules:
+        - allow: [Component, System, API, Resource, Location, Template, Domain]
+      locations: []
+
+    argocd:
+      appLocatorMethods:
+        - type: config
+          instances:
+            - name: main
+              url: https://{{ .Values.argocd.host }}
+              username: admin
+              password: ${ARGOCD_PASSWORD}
+
+    kubernetes:
+      serviceLocatorMethod:
+        type: multiTenant
+      clusterLocatorMethods:
+        - clusters:
+            - name: dev-cluster
+              url: {{ .Values.kubernetes.apiUrl }}
+              authProvider: serviceAccount
+              skipTLSVerify: true
+              serviceAccountToken: ${KUBERNETES_SA_TOKEN}
+          type: config
+      customResources:
+        - group: tekton.dev
+          apiVersion: v1beta1
+          plural: pipelineruns
+        - group: tekton.dev
+          apiVersion: v1beta1
+          plural: taskruns
