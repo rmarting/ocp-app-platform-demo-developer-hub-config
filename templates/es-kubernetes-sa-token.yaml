@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: backstage
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   refreshInterval: 5m
   secretStoreRef:
