@@ -28,11 +28,23 @@ data:
               resolvers:
                 - resolver: preferredUsernameMatchingUserEntityName
 
+    
     backend:
       baseUrl: https://{{ .Values.backstage.host }}
       listen:
         port: 7007
         host: 0.0.0.0
+      actions:
+        pluginSources:
+          - software-catalog-mcp-tool
+          - techdocs-mcp-tool
+      auth:
+        externalAccess:
+          - type: static
+            options:
+              token: ${BACKEND_SECRET}
+              subject: orchestrator
+
 
     integrations:
       gitlab:
