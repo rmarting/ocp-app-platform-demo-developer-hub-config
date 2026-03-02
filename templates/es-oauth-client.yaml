@@ -24,3 +24,11 @@ spec:
       remoteRef:
         key: secrets/keycloak/client-secret
         property: clientSecret
+    - secretKey: KEYCLOAK_PLUGIN_CLIENT_ID
+      remoteRef:
+        key: secrets/keycloak/client-secret
+        property: pluginClientId
+    - secretKey: KEYCLOAK_PLUGIN_CLIENT_SECRET
+      remoteRef:
+        key: secrets/keycloak/plugin-client-secret
+        property: value

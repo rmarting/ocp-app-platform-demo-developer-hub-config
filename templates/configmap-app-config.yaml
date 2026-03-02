@@ -67,8 +67,8 @@ data:
             baseUrl: https://{{ .Values.keycloak.host }}
             realm: {{ .Values.keycloak.realm }}
             loginRealm: {{ .Values.keycloak.loginRealm }}
-            clientId: ${OAUTH_CLIENT_ID}
-            clientSecret: ${OAUTH_CLIENT_SECRET}
+            clientId: ${KEYCLOAK_PLUGIN_CLIENT_ID}
+            clientSecret: ${KEYCLOAK_PLUGIN_CLIENT_SECRET}
             schedule:
               frequency: { minutes: 2 }
               timeout: { minutes: 1 }
