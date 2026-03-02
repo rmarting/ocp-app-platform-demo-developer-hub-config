@@ -73,6 +73,15 @@ data:
               frequency: { minutes: 2 }
               timeout: { minutes: 1 }
               initialDelay: { seconds: 15 }
+        gitlab:
+          gitlab:
+            host: {{ .Values.gitlab.host }}
+            branch: main
+            fallbackBranch: main
+            entityFilename: catalog-info.yaml
+            schedule:
+              frequency: { minutes: 5 }
+              timeout: { minutes: 3 }
 
     argocd:
       appLocatorMethods:
