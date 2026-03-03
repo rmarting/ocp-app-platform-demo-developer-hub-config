@@ -92,6 +92,12 @@ data:
               username: admin
               password: ${ARGOCD_PASSWORD}
 
+    lightspeed:
+      servers:
+        - id: litellm
+          url: ${LLM_SERVER_URL}
+          token: ${LLM_SERVER_TOKEN}
+
     kubernetes:
       serviceLocatorMethod:
         type: multiTenant
