@@ -19,6 +19,10 @@ data:
         - title: Getting Started with Red Hat Developer Hub
           message: Can you guide me through the first steps to start using Red Hat Developer Hub as a developer, like exploring the Software Catalog and adding my service?
 
+      mcpServers:
+      - name: mcp::backstage
+        token: ${BACKEND_SECRET}
+
       # OPTIONAL: Port for lightspeed service (default: 8080)
       # servicePort: ${LIGHTSPEED_SERVICE_PORT}
 
@@ -56,7 +60,7 @@ data:
           - type: static
             options:
               token: ${BACKEND_SECRET}
-              subject: orchestrator
+              subject: api-access
       # Lightspeed-specific CSP and script-src/img-src directives
       csp:
         upgrade-insecure-requests: false

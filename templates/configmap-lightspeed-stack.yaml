@@ -27,3 +27,7 @@ data:
       type: "sqlite"
       sqlite:
         db_path: "/tmp/data/conversations/lcs_cache.db"
+    mcp_servers:
+    - name: mcp::backstage
+      provider_id: model-context-protocol
+      url: https://backstage-developer-hub.rhdh.svc.cluster.local/api/mcp-actions/v1
