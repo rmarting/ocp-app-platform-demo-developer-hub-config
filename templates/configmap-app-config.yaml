@@ -16,8 +16,8 @@ data:
       # OPTIONAL: Custom users prompts displayed to users
       # If not provided, the plugin uses built-in default prompts
       prompts:
-        - title: Getting Started with Red Hat Developer Hub
-          message: Can you guide me through the first steps to start using Red Hat Developer Hub as a developer, like exploring the Software Catalog and adding my service?
+        - title: Using Lightspeed and MCP
+          message: Tell me about the parasol-insurance-api API in the Catalog, and write a sample snippet of Java code to access it.
 
       mcpServers:
       - name: mcp::backstage

@@ -61,3 +61,73 @@ data:
                     ref: lightspeedTranslationRef
       - disabled: false
         package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/red-hat-developer-hub-backstage-plugin-lightspeed-backend:bs_1.42.5__1.0.3!red-hat-developer-hub-backstage-plugin-lightspeed-backend
+      - disabled: false
+        package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-global-header
+        pluginConfig:
+          dynamicPlugins:
+            frontend:
+              red-hat-developer-hub.backstage-plugin-global-header:
+                mountPoints:
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Documentation
+                      priority: 150
+                      props:
+                        title: Developer Hub
+                        icon: developerHub
+                        link: https://docs.redhat.com/en/documentation/red_hat_developer_hub
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Documentation
+                      priority: 140
+                      props:
+                        title: OpenShift
+                        icon: openShift
+                        link: https://docs.redhat.com/en/documentation/openshift_container_platform/4.20
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Documentation
+                      priority: 130
+                      props:
+                        title: OpenShift GitOps
+                        icon: openShift
+                        link: https://docs.redhat.com/en/documentation/red_hat_openshift_gitops/1.19
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Documentation
+                      priority: 120
+                      props:
+                        title: OpenShift Pipelines
+                        icon: openShift
+                        link: https://docs.redhat.com/en/documentation/red_hat_openshift_pipelines/1.21
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Developer Tools
+                      priority: 100
+                      props:
+                        title: RHDH Local
+                        icon: developerHub
+                        link: https://github.com/redhat-developer/rhdh-local
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Developer Tools
+                      priority: 90
+                      props:
+                        title: DevSpaces
+                        icon: openShift
+                        link: https://devspaces.{{ .Values.cluster.subdomain }}
+                  - mountPoint: global.header/application-launcher
+                    importName: MenuItemLink
+                    config:
+                      section: Developer Tools
+                      priority: 80
+                      props:
+                        title: GitLab
+                        icon: gitlab
+                        link: https://gitlab-gitlab.{{ .Values.cluster.subdomain }}

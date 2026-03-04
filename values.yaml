@@ -14,3 +14,6 @@ keycloak:
   host: ""
   realm: backstage
   loginRealm: backstage
+
+cluster:
+  subdomain: ""
