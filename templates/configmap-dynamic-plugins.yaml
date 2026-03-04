@@ -66,6 +66,10 @@ data:
         pluginConfig:
           dynamicPlugins:
             frontend:
+              default.main-menu-items:
+                menuItems:
+                  default.create:
+                    title: ''
               red-hat-developer-hub.backstage-plugin-global-header:
                 mountPoints:
                   - mountPoint: application/header
