@@ -16,8 +16,18 @@ data:
       # OPTIONAL: Custom users prompts displayed to users
       # If not provided, the plugin uses built-in default prompts
       prompts:
+        # Original One
+        #- title: Using Lightspeed and MCP
+        #  message: Tell me about the parasol-insurance-api API in the Catalog, and write a sample snippet of Java code to access it.
+        - title: Introduce Parasol Insurance Application
+          message: |
+            Introduce me about the Parasol Insurance application, its components registered (including API) in the 
+            Red Hat Developer Hub catalog. Complete the introduction writing a sample snippet of Java code to access it.
+
         - title: Using Lightspeed and MCP
-          message: Tell me about the parasol-insurance-api API in the Catalog, and write a sample snippet of Java code to access it.
+          message: |
+            Tell me about the capabilities of Red Hat Developer Lightspeed and its integration with the MCP tools of
+            this instance of Red Hat Developer Hub.
 
       mcpServers:
       - name: mcp::backstage
