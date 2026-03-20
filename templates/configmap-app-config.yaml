@@ -21,7 +21,7 @@ data:
         #  message: Tell me about the parasol-insurance-api API in the Catalog, and write a sample snippet of Java code to access it.
         - title: Introduce Parasol Insurance Application
           message: |
-            Introduce me about the Parasol Insurance application, its components registered (including API) in the 
+            Introduce me about the Parasol Insurance claims management application, its components registered (including API) in the 
             Red Hat Developer Hub catalog. Complete the introduction writing a sample snippet of Java code to access it.
 
         - title: Using Lightspeed and MCP
@@ -51,6 +51,9 @@ data:
         Please, use the MCP tools identified to get more context of the query asked by the Red Hat Developer user.
         Be precise, and give information about the usage of interface of Red Hat Developer Hub, including information from the
         upstream version of the product: Backstage.
+
+        If you can't find information using the MCP tools of Red Hat Developer Hub, then provide general information from
+        the official sites of Red Hat Developer Hub or Backstage.
         
     signInPage: oidc
     auth:
