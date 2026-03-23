@@ -32,6 +32,9 @@ data:
     p, role:default/plugins, kubernetes.clusters.read, read, allow
     p, role:default/plugins, kubernetes.resources.read, read, allow
     p, role:default/plugins, adoption-insights.events.read, read, allow
+    #p, role:default/plugins, lightspeed.chat.read, read, allow
+    #p, role:default/plugins, lightspeed.chat.create, create, allow
+    #p, role:default/plugins, lightspeed.chat.delete, delete, allow
     p, role:default/workflowUser, orchestrator.workflow.create-ocp-namespace-swt, read, allow
     p, role:default/workflowUser, orchestrator.workflow.use.create-ocp-namespace-swt, update, allow
     p, role:default/workflowUser, orchestrator.instanceAdminView, read, allow
@@ -39,6 +42,7 @@ data:
     p, role:default/workflowAdmin, orchestrator.workflow.use, update, allow
     p, role:default/workflowAdmin, orchestrator.workflowAdminView, read, allow
     p, role:default/workflowAdmin, orchestrator.instanceAdminView, read, allow
+    # Group permissions
     g, group:default/platformengineers, role:default/location_read
     g, group:default/platformengineers, role:default/platformengineer
     g, group:default/platformengineers, role:default/scaffolder_execute
