@@ -47,14 +47,14 @@ spec:
                 envFrom:
                   - secretRef:
                       name: llama-stack-secrets
-                image: 'quay.io/redhat-ai-dev/llama-stack:0.1.4'
+                image: 'quay.io/redhat-ai-dev/llama-stack:0.1.4' # Llama Stack image
                 name: llama-stack
                 volumeMounts:
                   - mountPath: /app-root/.llama
                     name: shared-storage
                   - mountPath: /rag-content
                     name: rag-data-volume
-              - image: 'quay.io/lightspeed-core/lightspeed-stack:0.4.0'
+              - image: 'quay.io/lightspeed-core/lightspeed-stack:0.4.0' # Lightspeed Core Service image
                 name: lightspeed-core
                 volumeMounts:
                   - mountPath: /app-root/lightspeed-stack.yaml
@@ -72,9 +72,9 @@ spec:
                 command:
                   - "sh"
                   - "-c"
-                  - "echo 'Copying RAG data...'; cp -r /rag/vector_db/rhdh_product_docs /rag-content/vector_db/ && cp -r /rag/embeddings_model /rag-content/embeddings_model/ && echo 'Copy complete.'"
+                  - "echo 'Copying RAG data...'; cp -r /rag/vector_db/rhdh_product_docs /rag-content/ && cp -r /rag/embeddings_model /rag-content/ && echo 'Copy complete.'"
                 volumeMounts:
-                  - mountPath: /data
+                  - mountPath: /rag-content
                     name: rag-data-volume
             volumes:
               - $patch: replace
